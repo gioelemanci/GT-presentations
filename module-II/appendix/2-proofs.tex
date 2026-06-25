@@ -1,0 +1,19 @@
+\begin{frame}[label=backup_proof]{Extended Proof: Angle Quantization}
+    We want to show that $n_{\alpha\beta} n_{\beta\alpha} \in \{0, 1, 2, 3\}$.
+
+    % SPIEGAZIONE DEL PASSAGGIO LOGICO:
+    % Questo sviluppo algebrico sfrutta l'algebra lineare di base per 
+    % vincolare un problema geometrico apparentemente aperto in un numero 
+    % discreto di casi.
+    \begin{align*}
+        n_{\alpha\beta} n_{\beta\alpha} & = \left( \frac{2(\alpha, \beta)}{(\alpha, \alpha)} \right) \left( \frac{2(\beta, \alpha)}{(\beta, \beta)} \right) \\
+                                        & = 4 \frac{(\alpha, \beta)^2}{\|\alpha\|^2 \|\beta\|^2}                                                            \\
+                                        & = 4 \cos^2 \theta_{\alpha\beta}
+    \end{align*}
+
+    Since $n_{\alpha\beta} \in \mathbb{Z}$ (crystallographic condition) and $\cos^2 \theta \in [0,1]$, the product must be an integer between 0 and 4.
+
+    The case $4 \cos^2 \theta = 4 \implies \cos \theta = \pm 1$ implies the roots are collinear ($\beta = \pm \alpha$). By axiom 1 and 2, simple roots must be linearly independent, so we exclude 4 for simple roots.
+
+    Thus, $n_{\alpha\beta} n_{\beta\alpha} \in \{0, 1, 2, 3\}$.
+\end{frame}

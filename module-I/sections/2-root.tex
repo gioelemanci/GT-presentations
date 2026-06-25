@@ -1,0 +1,50 @@
+\section{Root Systems}
+
+\begin{frame}{The Root System}
+    From the Cartan-Weyl decomposition of a semi-simple Lie algebra $\mathfrak{g}$, the roots (eigenvalues of the adjoint action) form a highly symmetric geometric structure inside a Euclidean space $E = \mathfrak{h}_{\mathbb{R}}^\vee$.
+
+    \vspace{0.3cm}
+    \textbf{Physical Meaning:} The roots correspond to the non-Cartan generators of our symmetry (e.g., $W^\pm$ bosons in the Standard Model, acting as raising/lowering operators for quantum numbers).
+
+    \vspace{0.5cm}
+    The rigidity of quantum mechanics (specifically $SU(2)$ representation theory) forces these roots to satisfy strict geometric axioms.
+
+    \vfill
+    % Bottone ipertestuale verso l'appendice formale
+    \hyperlink{backup_rootsystem}{\beamerbutton{Formal Definition of Root System}}
+\end{frame}
+
+\begin{frame}{The Crystallographic Restriction}
+    The requirement that roots must fold into representations of independent $SU(2)$ subalgebras forces the quantity $n_{\alpha\beta} = \frac{2(\alpha, \beta)}{(\alpha, \alpha)}$ to be an integer.
+
+    % OPTIONAL: Se il tempo stringe, enuncia solo la formula finale
+    By the definition of the Euclidean scalar product, we can relate this to the angle $\theta_{\alpha\beta}$ between two roots $\alpha$ and $\beta$:
+    \begin{equation}
+        n_{\alpha\beta} n_{\beta\alpha} = 4 \frac{(\alpha, \beta)^2}{\|\alpha\|^2 \|\beta\|^2} = 4 \cos^2 \theta_{\alpha\beta} \in \mathbb{Z}
+    \end{equation}
+
+    Because $\cos^2 \theta \le 1$, the product must be strictly bounded:
+    \begin{equation}
+        n_{\alpha\beta} n_{\beta\alpha} \in \{0, 1, 2, 3, 4\}
+    \end{equation}
+
+    \vfill
+    % Bottone ipertestuale verso l'appendice con la dimostrazione estesa
+    \hyperlink{backup_proof}{\beamerbutton{Extended Algebraic Proof}}
+\end{frame}
+
+\begin{frame}{Allowed Angles and Lengths}
+    Excluding the trivial collinear case ($4$), the allowed angles between any two linearly independent simple roots are heavily restricted.
+
+    \vspace{0.3cm}
+    For $\theta \ge \pi/2$, the only allowed geometric configurations are:
+    \begin{itemize}
+        \item $\theta = \pi/2$ ($90^\circ$): Roots are orthogonal.
+        \item $\theta = 2\pi/3$ ($120^\circ$): Equal lengths ($\|\beta\|/\|\alpha\| = 1$).
+        \item $\theta = 3\pi/4$ ($135^\circ$): Length ratio is $\sqrt{2}$.
+        \item $\theta = 5\pi/6$ ($150^\circ$): Length ratio is $\sqrt{3}$.
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{Why it matters:} This mathematical rigidity is the profound reason why there are only a handful of distinct continuous gauge groups (like $SU(N)$, $SO(N)$) allowed in physics!
+\end{frame}
