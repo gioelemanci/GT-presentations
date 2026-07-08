@@ -1,0 +1,180 @@
+% --- SECTION 9.1: Pauli matrix functions ---
+\section{9.1 Pauli Matrix Functions}
+
+\begin{frame}{Definition of Pauli Matrix Function}
+    \begin{definition}[9.1.1]
+        A Pauli matrix function is an element $\sigma \in \text{Hom}(\mathbb{C}^3, \mathbb{C}[2])$ satisfying the relations
+        \begin{align*}
+            \sigma(x)^+        & = \sigma(x^*)                         \\
+            \sigma(x)\sigma(y) & = x \cdot y 1_2 + i\sigma(x \times y)
+        \end{align*}
+        for all $x, y \in \mathbb{C}^3$.
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Algebraic Properties I}
+    \begin{proposition}[9.1.1]
+        One has
+        \begin{align*}
+            \sigma(x)\sigma(y) + \sigma(y)\sigma(x) & = 2x \cdot y 1_2,      \\
+            \sigma(x)\sigma(y) - \sigma(y)\sigma(x) & = 2i\sigma(x \times y)
+        \end{align*}
+        for all $x, y \in \mathbb{C}^3$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Algebraic Properties II (Traces)}
+    \begin{proposition}[9.1.2]
+        One has
+        \begin{align*}
+            \tr(\sigma(x))                   & = 0                    \\
+            \tr(\sigma(x)\sigma(y))          & = 2x \cdot y           \\
+            \tr(\sigma(x)\sigma(y)\sigma(z)) & = 2ix \times y \cdot z
+        \end{align*}
+        for all $x, y, z \in \mathbb{C}^3$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Algebraic Properties III (Determinant)}
+    \begin{proposition}[9.1.3]
+        One has
+        \[ \det \sigma(x) = -x^2 \]
+        for $x \in \mathbb{C}^3$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Expansion Theorem}
+    \begin{proposition}[9.1.4]
+        For $X \in \mathbb{C}[2]$, there exist unique $x_0 \in \mathbb{C}$, $x \in \mathbb{C}^3$ such that
+        \[ X = x_0 1_2 + \sigma(x) \]
+    \end{proposition}
+    \begin{proposition}[9.1.5]
+        Let $X \in \mathbb{C}[2]$ be a matrix expanded as above. Then,
+        \[ \tr X = 2x_0 \]
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Determinant and Inverse}
+    \begin{proposition}[9.1.6]
+        Let $X \in \mathbb{C}[2]$ be a matrix expanded as $X = x_0 1_2 + \sigma(x)$. Then,
+        \[ \det X = x_0^2 - x^2 \]
+    \end{proposition}
+
+    \begin{proposition}[9.1.7]
+        Let $X \in \mathbb{C}[2]$ be a matrix expanded in the form $X = x_0 1_2 + \sigma(x)$ with $x_0^2 - x^2 \neq 0$. Then, $X$ is invertible and
+        \[ X^{-1} = \frac{1}{x_0^2 - x^2}(x_0 1_2 - \sigma(x)) \]
+    \end{proposition}
+\end{frame}
+
+% --- SECTION 9.2: Reality and symmetry ---
+\section{9.2 Reality and Symmetry}
+
+\begin{frame}{Characteristic Reflection}
+    \begin{proposition}[9.2.1]
+        There exists a matrix $\Pi \in \mathbb{R}[3]$ such that
+        \begin{align*}
+            \Pi      & = \Pi^t \\
+            \Pi^2    & = 1     \\
+            \det \Pi & = -1
+        \end{align*}
+        and with the property that $\sigma(x)^t = \sigma(\Pi x)$ and $\sigma(x)^* = \sigma(\Pi x^*)$ for $x \in \mathbb{C}^3$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Characteristic Projectors}
+    \begin{definition}[9.2.1]
+        We let $P_{\pm 1} \in \mathbb{R}[3]$ be the matrices
+        \[ P_{\pm 1} = \frac{1}{2}(1 \pm \Pi) \]
+    \end{definition}
+
+    \begin{proposition}[9.2.2]
+        The characteristic projectors $P_{\pm 1}$ satisfy:
+        \begin{align*}
+            P_{\pm 1}^2 & = P_{\pm 1}, \quad P_{\pm 1}P_{\mp 1} = 0, \quad P_{+1} + P_{-1} = 1 \\
+            \Pi         & = P_{+1} - P_{-1}, \quad \tr P_{+1} = 2, \quad \tr P_{-1} = 1
+        \end{align*}
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Characteristic Eigenspaces}
+    \begin{definition}[9.2.2]
+        We let $E_{\pm 1} \subset \mathbb{R}^3$ be the eigenspaces of $\Pi$ relative to the eigenvalues $\pm 1$, respectively.
+    \end{definition}
+
+    \begin{proposition}[9.2.3 \& 9.2.4]
+        The dimensions are $\dim E_{+1} = 2$ and $\dim E_{-1} = 1$. \\
+        Let $x \in \mathbb{R}^3$. Then, one has
+        \[ \sigma(x)^t = \sigma(x)^* = \pm \sigma(x) \]
+        if and only if $x \in E_{\pm 1}$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Characteristic Unit Vector}
+    \begin{proposition}[9.2.5]
+        There is a unique vector $n \in \mathbb{R}^3$ with $|n| = 1$ such that
+        \[ \sigma(n) = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \]
+        Further, $E_{-1} = \mathbb{R}n$.
+    \end{proposition}
+\end{frame}
+
+% --- SECTION 9.3: Standard Pauli Matrix Function ---
+\section{9.3 Standard Pauli Function}
+
+\begin{frame}{The Standard Pauli Matrices}
+    \begin{definition}[9.3.1]
+        The Pauli matrices $\sigma_i \in \mathbb{C}[2]$, $i=1,2,3$ are given by
+        \[ \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \]
+    \end{definition}
+
+    \begin{proposition}[9.3.1]
+        For $i, j = 1,2,3$, one has
+        \begin{align*}
+            \sigma_i^+       & = \sigma_i                                              \\
+            \sigma_i\sigma_j & = \delta_{ij}1_2 + i\sum_{k=1}^3 \epsilon_{ijk}\sigma_k
+        \end{align*}
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{The Standard Pauli Matrix Function}
+    \begin{definition}[9.3.2]
+        Define $\sigma : \mathbb{C}^3 \rightarrow \mathbb{C}[2]$ by $\sigma(x) = \sum_{i=1}^3 x_i\sigma_i$ with $x \in \mathbb{C}^3$. Explicitly:
+        \[ \sigma(x) = \begin{pmatrix} x_3 & x_1 - ix_2 \\ x_1 + ix_2 & -x_3 \end{pmatrix} \]
+    \end{definition}
+
+    \begin{proposition}[9.3.2 \& 9.3.3]
+        $\sigma$ is a Pauli matrix function.\\
+        Let $\sigma$ be a Pauli matrix function and $U \in U(2)$ a unitary matrix. Then $\sigma_U(x) = U\sigma(x)U^+$ is a Pauli matrix function as well.
+    \end{proposition}
+\end{frame}
+
+% --- SECTION 9.4: Exponential ---
+\section{9.4 Exponential}
+
+\begin{frame}{The Exponential of a Pauli Matrix Function}
+    \begin{proposition}[9.4.1]
+        One has, for $x \in \mathbb{C}^3$
+        \[ \exp\left(\frac{1}{2}\sigma(x)\right) = \cosh\left(\frac{l(x)}{2}\right)1_2 + \frac{1}{l(x)}\sinh\left(\frac{l(x)}{2}\right)\sigma(x) \]
+        where the complex length $l(x)$ of $x$ is defined by $l(x) = (x^2)^{1/2}$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Properties of the Exponential}
+    \begin{proposition}[9.4.2 \& 9.4.3]
+        For $x \in \mathbb{C}^3$:
+        \begin{align*}
+            \tr \exp\left(\frac{1}{2}\sigma(x)\right)  & = 2\cosh\left(\frac{l(x)}{2}\right) \\
+            \det \exp\left(\frac{1}{2}\sigma(x)\right) & = 1
+        \end{align*}
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Injectivity of the Exponential}
+    \begin{proposition}[9.4.4]
+        Let $x, y \in \mathbb{C}^3$ such that
+        \begin{align*}
+            \exp\left(\frac{1}{2}\sigma(x)\right) & = \exp\left(\frac{1}{2}\sigma(y)\right) \\
+            |l(x) \pm l(y)|                       & < 4\pi \quad \text{(with both signs)}
+        \end{align*}
+        Then, $x = y$.
+    \end{proposition}
+\end{frame}
