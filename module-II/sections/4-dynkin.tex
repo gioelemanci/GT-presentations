@@ -1,33 +1,26 @@
 \section{Dynkin Diagrams}
 
-\begin{frame}{Simple Roots and Dynkin Diagrams}
-    To formalize the classification for any rank, we introduce \textbf{Simple Roots} ($\Delta$): a minimal basis of positive roots that generate the entire system.
+\begin{frame}{Simple Roots \& Dynkin Diagrams}
+    To generalize beyond $rank=2$, we must identify the "basis" vectors.
+    We define \textbf{Simple Roots} ($\Delta \subset \mathcal{R}$) as positive roots that cannot be decomposed into a sum of other positive roots.
 
-    \vspace{0.5cm}
-    We condense the geometry of simple roots into a \textbf{Dynkin Diagram}:
+    \vspace{0.3cm}
+    \textbf{Definition 4.4.5 (Dynkin Diagrams):} A graph encoding the geometry of $\Delta$:
     \begin{itemize}
-        \item \textbf{Nodes:} Represent simple roots.
-        \item \textbf{Edges:} Represent the angle between them (0, 1, 2, or 3 lines).
-        \item \textbf{Arrows:} Point from the longer root to the shorter root.
+        \item \textbf{Nodes:} Each simple root is a node.
+        \item \textbf{Edges:} Nodes are connected by $\ell_{\alpha\beta} = 4 \cos^2 \theta_{\alpha\beta} \in \{0,1,2,3\}$ lines.
+        \item \textbf{Arrows:} If lengths differ ($\ell > 1$), an arrow points from the longer root to the shorter one ($>$).
     \end{itemize}
 
     \vfill
-    % Bottone ipertestuale verso l'appendice per definizioni formali
-    \hyperlink{backup_simpleroots}{\beamerbutton{Definition of Simple Roots}}
-    \hyperlink{backup_dynkin}{\beamerbutton{Definition of Dynkin Diagrams}}
+    \hyperlink{backup_simpleroots}{\beamerbutton{Formal Def 4.4.3: Simple Roots}}
 \end{frame}
 
-\begin{frame}{The Main Result: Rank 2 Dynkin Diagrams}
-    The geometric root systems directly translate into the fundamental Dynkin diagrams:
-
-    \vspace{0.5cm}
+\begin{frame}{Dynkin Diagrams for Rank-2}
     \begin{figure}
-        \centering
-        % INSERIRE QUI SCREENSHOT PAGINA 125 DEL PDF (Dynkin Diagrams for Rank 2)
-        \textit{[Insert Image: Dynkin Diagrams $A_1 \oplus A_1$, $A_2$, $B_2$, $G_2$]}
+        \includegraphics[width=0.8\textwidth]{img/dynkin-blocks.png}
     \end{figure}
 
-    \vspace{0.5cm}
-    From these simple building blocks, one can classify all semi-simple Lie algebras, setting the stage for constructing Grand Unified Theories (GUTs).
+    % VOCAL CUE: Spiega che questi 4 mattoncini sono gli unici legami permessi tra NODI ADIACENTI in qualsiasi algebra di Lie di qualsiasi dimensione.
+    These 4 fundamental building blocks encode the entire Cartan matrix $C_{ij} = n_{\alpha^{(j)}\alpha^{(i)}}$.
 \end{frame}
-

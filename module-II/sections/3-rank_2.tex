@@ -1,21 +1,30 @@
-\section{Rank 2 Algebras}
+\section{Rank-2 Systems}
 
-\begin{frame}{Classification of Rank 2 Root Systems}
-    Using the allowed angles, we can geometrically construct all possible rank 2 root systems (algebras with a 2-dimensional Cartan subalgebra).
-
-    \vspace{0.3cm}
-    There are exactly four mathematical solutions:
+\begin{frame}{Constructing Rank-2 Root Systems}
+    In a 2-dimensional root space ($rank = 2$), we pick two roots $\alpha, \beta$ spanning $E$ and saturate the space by applying:
     \begin{enumerate}
-        \item $A_1 \oplus A_1$ (e.g., $SU(2) \times SU(2)$)
-        \item $A_2$ (e.g., $SU(3)$, the Eightfold Way flavor symmetry)
-        \item $B_2 \cong C_2$ (e.g., $SO(5)$)
-        \item $G_2$ (Exceptional algebra)
+        \item Weyl reflections $s_\alpha(\beta) = \beta - n_{\alpha\beta}\alpha$.
+        \item The $\alpha$-string property (Thm 4.4.2): if $(\alpha, \beta) > 0$, then $\alpha - \beta \in \mathcal{R}$.
     \end{enumerate}
 
     \vspace{0.3cm}
+    This purely geometric construction yields exactly 4 systems:
+
     \begin{figure}
-        \centering
-        % INSERIRE QUI SCREENSHOT PAGINA 122-123 DEL PDF (Rank 2 root systems)
-        \textit{[Insert Image: Rank 2 Root Systems $A_1 \oplus A_1$, $A_2$, $B_2$, $G_2$]}
+        \includegraphics[width=0.7\textwidth]{img/A1-A2.png}
     \end{figure}
+
+    % VOCAL CUE: Mostra alla lavagna A1+A1 (su2 x su2) e A2 (su3, sapore dei quark!).
+\end{frame}
+
+\begin{frame}{Rank-2 Root Systems: $B_2$ and $G_2$}
+    For the remaining allowed angles, the reflection symmetries generate highly structured lattices:
+
+    \begin{figure}
+        \includegraphics[width=0.7\textwidth]{img/B2-G2.png}
+    \end{figure}
+
+    % VOCAL CUE: B2 is isomorphic to so(5). G2 is exceptional, the first non-matrix Lie algebra!
+    \vfill
+    \hyperlink{backup_astring}{\beamerbutton{Theorem 4.4.2: Root Strings}}
 \end{frame}

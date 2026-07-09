@@ -1,41 +1,54 @@
-\section{Technical Appendix and Deep Dives}
+\section{Technical Appendix \& Deep Dive}
 
-\begin{frame}[label=backup_rootsystem]{Formal Definition: Root System}
-    \textbf{Definition 4.4.1:} Let $E$ be a finite-dimensional Euclidean vector space with inner product $(\cdot, \cdot)$. A \textit{root system} $\mathcal{R} \subset E$ is a finite set satisfying:
-    \begin{enumerate}
-        \item $\text{span}_{\mathbb{R}}(\mathcal{R}) = E$ and $0 \notin \mathcal{R}$.
-        \item If $\alpha \in \mathcal{R}$ and $\lambda \alpha \in \mathcal{R}$ for $\lambda \in \mathbb{R}$, then $\lambda = \pm 1$.
-        \item \textbf{Invariance under reflection:} For all $\alpha, \beta \in \mathcal{R}$, the reflection of $\beta$ along $\alpha$ is in $\mathcal{R}$:
-              $$s_\alpha(\beta) := \beta - \frac{2(\alpha, \beta)}{(\alpha, \alpha)} \alpha \in \mathcal{R}$$
-        \item \textbf{Crystallographic Condition:} For all $\alpha, \beta \in \mathcal{R}$, the projection is an integer:
-              $$n_{\alpha\beta} := \langle \alpha, \beta \rangle = \frac{2(\alpha, \beta)}{(\alpha, \alpha)} \in \mathbb{Z}$$
-    \end{enumerate}
+\begin{frame}[label=backup_rootsystem]{Definition 4.4.1: Root System}
+    Let $E$ be a finite-dimensional Euclidean vector space, with $(\cdot, \cdot) : E \times E \to \mathbb{R}$ the scalar product. A root system $\mathcal{R} \subset E$ is a finite set which satisfies:
+    \begin{itemize}
+        \item[a)] The $\mathbb{R}$-span of $\mathcal{R}$ is $E$.
+        \item[b)] For $\alpha \in \mathcal{R}$, if $\lambda \alpha \in \mathcal{R}$ for $\lambda \in \mathbb{R}$, then $\lambda = \pm 1$.
+        \item[c)] \textbf{Crystallographic condition:} $\forall \alpha, \beta \in \mathcal{R}: \quad n_{\alpha\beta} := \frac{2(\alpha, \beta)}{(\alpha, \alpha)} \in \mathbb{Z}$.
+        \item[d)] \textbf{Reflection invariance:} $\forall \alpha, \beta \in \mathcal{R}: \quad s_\alpha(\beta) := \beta - n_{\alpha\beta}\alpha \in \mathcal{R}$.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}[label=backup_simpleroots]{Formal Definition: Simple Roots}
-    \textbf{Definition 4.4.3:}
-    Let $t \in E$ be a vector such that $(t, \alpha) \neq 0$ for all $\alpha \in \mathcal{R}$.
+\begin{frame}[label=backup_angles]{Extended Proof: Angle Quantization}
+    From Definition 4.4.1 (c), we know $n_{\alpha\beta} \in \mathbb{Z}$.
+    Using Euclidean geometry definitions:
+    \begin{align*}
+        \|\alpha\|                & = \sqrt{(\alpha, \alpha)}                      \\
+        \cos \theta_{\alpha\beta} & = \frac{(\alpha, \beta)}{\|\alpha\| \|\beta\|}
+    \end{align*}
 
-    \begin{itemize}
-        \item A root $\alpha$ is defined as \textbf{positive} ($\alpha \in \mathcal{R}^+$) if $(t, \alpha) > 0$.
-        \item A positive root $\alpha \in \mathcal{R}^+$ is called \textbf{simple} if it cannot be written as the sum of two positive roots.
-    \end{itemize}
-
-    The set of simple roots is denoted by $\Delta \subset \mathcal{R}$.
-
-    \vspace{0.3cm}
-    \textbf{Theorem 3.5.5:} Every root $\alpha \in \mathcal{R}$ can be uniquely written as an integer linear combination of simple roots:
-    $$ \alpha = \sum_{i=1}^r n_i \alpha^{(i)} $$
-    where all $n_i \ge 0$ (if $\alpha \in \mathcal{R}^+$) or all $n_i \le 0$ (if $\alpha \in \mathcal{R}^-$).
+    Substitute $(\alpha, \beta)$ into the product of integers:
+    \begin{align*}
+        n_{\alpha\beta} n_{\beta\alpha} & = \left( 2 \cos \theta_{\alpha\beta} \frac{\|\beta\|}{\|\alpha\|} \right) \left( 2 \cos \theta_{\alpha\beta} \frac{\|\alpha\|}{\|\beta\|} \right) \\
+                                        & = 4 \cos^2 \theta_{\alpha\beta}
+    \end{align*}
+    Since $\cos^2 \theta \in [0,1]$, the integer product must be $\in \{0,1,2,3,4\}$.
 \end{frame}
 
-\begin{frame}[label=backup_dynkin]{Formal Definition: Dynkin Diagrams}
-    \textbf{Definition 4.4.5:}
-    A Dynkin diagram is a partially directed graph associated with a root system:
+\begin{frame}[label=backup_astring]{Theorem 4.4.2: Root Strings}
+    For $\alpha, \beta \ne \alpha$ two roots, the $\alpha$-string through $\beta$ (the set $\beta - p\alpha, \dots, \beta + q\alpha$) satisfies:
     \begin{itemize}
-        \item The nodes are the simple roots $\alpha \in \Delta$.
-        \item For $\alpha, \beta \in \Delta$ with $\|\alpha\| \le \|\beta\|$, they are connected by $\ell_{\alpha\beta}$ edges, where:
-              $$ \ell_{\alpha\beta} = -n_{\alpha\beta} = 4 \cos^2 \theta_{\alpha\beta} \in \{0, 1, 2, 3\} $$
-        \item If $\ell_{\alpha\beta} > 1$ (i.e. roots have different lengths), an arrow is drawn from the longer root $\beta$ to the shorter root $\alpha$.
+        \item[a)] The $\alpha$-string through $\alpha$ is $\{-\alpha, 0, \alpha\}$.
+        \item[b)] $p - q = n_{\alpha\beta} \equiv \frac{2(\alpha, \beta)}{(\alpha, \alpha)}$.
+        \item[c)] For $\alpha \ne \pm \beta$, the string has at most 4 elements ($p+q \le 3$).
+        \item[d)] \textbf{Crucial property for drawings:} If $(\alpha, \beta) > 0$, then $\alpha - \beta \in \mathcal{R}$. If $(\alpha, \beta) < 0$, then $\alpha + \beta \in \mathcal{R}$.
     \end{itemize}
+\end{frame}
+
+\begin{frame}[label=backup_simpleroots]{Definition 4.4.3: Positive \& Simple Roots}
+    Let $t \in E$ be such that $(t, \alpha) \ne 0$ for all $\alpha \in \mathcal{R}$ (always possible because $\mathcal{R}$ is finite).
+
+    \begin{itemize}
+        \item A root $\alpha \in \mathcal{R}$ is called \textbf{positive} ($\alpha \in \mathcal{R}^+$) if $(t, \alpha) > 0$, and \textbf{negative} if $(t, \alpha) < 0$.
+        \item A positive root is called \textbf{simple} if it cannot be written as the sum of two positive roots.
+    \end{itemize}
+
+    The set of simple roots is denoted $\Delta \subset \mathcal{R}$.
+
+    \vspace{0.2cm}
+    \textbf{Lemma 4.4.4:} If $\alpha, \beta \in \Delta$, then:
+    a) $\alpha - \beta$ and $\beta - \alpha$ are not roots.
+    b) $(\alpha, \beta) \le 0$ (obtuse angles only).
+    c) $\Delta$ is linearly independent.
 \end{frame}
